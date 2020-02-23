@@ -2,11 +2,23 @@
   margin: 0;
   transition: .3s;
   user-select: none;
+  color: lightblue;
+  font-family: monospace;
 }
 
 #app {
-  background-color: lightgreen;
   overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(255,217,255);
+  background: linear-gradient(55deg, rgba(255,217,255,1) 0%, rgba(255,255,217,1) 75%, rgba(205,247,255,1) 100%);
 }
 
 .content {
@@ -18,6 +30,21 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.text {margin-top: 4px; margin-left: 8px;}
+.text__props {color: pink;}
+.text__object {color: whitesmoke;}
+.text__str {color: lightgreen;}
+.text__int {color: orange;}
+.text__link {
+  color: lightgreen;
+  cursor: pointer;
+}
+.text__link:hover {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: magenta;
 }
 
 .button {
