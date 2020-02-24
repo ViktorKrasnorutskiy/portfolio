@@ -5,9 +5,6 @@
   font-family: monospace;
   overflow: hidden;
 }
-
-#app {}
-
 .background {
   position: absolute;
   width: 100vw;
@@ -18,30 +15,6 @@
   background: linear-gradient(55deg, rgba(255,217,255,1) 0%, rgba(255,255,217,1) 25%, rgba(205,247,255,1) 100%);
   transform: translate(-50%, -50%);
 }
-.background__home {
-
-}
-.background__examples {
-
-}
-
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.content__home {
-  box-shadow: 0 0 20px darkgray;
-  width: 300px;
-  height: 300px;
-  background-color: gray;
-}
-.content__examples {
-  width: 100vw;
-  height: 100vh;
-  top: 50%;
-}
 
 .text {margin-top: 4px; margin-left: 8px;}
 .text__props {color: pink;}
@@ -49,68 +22,104 @@
 .text__object {color: whitesmoke;}
 .text__str {color: lightgreen;}
 .text__int {color: orange;}
-.text__link {
-  color: lightgreen;
+.text__link {color: lightgreen; cursor: pointer;}
+.text__link:hover {color: white; text-decoration: underline; text-decoration-color: magenta;}
+
+.__up {
+  top: 10%;
+}
+.__mid_y {
+  top: 50%;
+}
+.__down {
+  top: 90%;
+}
+.__mid {
+  top: 50%;
+  left: 50%;
+}
+.__left {
+  left: 30%;
+}
+.__mid_x {
+  left: 50%;
+}
+.__right {
+  left: 70%;
+}
+
+.__clickable {
+  opacity: 1;
   cursor: pointer;
 }
-.text__link:hover {
-  color: white;
-  text-decoration: underline;
-  text-decoration-color: magenta;
+.__clickable:hover {
+  border: 5px solid magenta;
+}
+.__hidden {
+  opacity: 0;
+  cursor: default;
+  user-select: none;
+  pointer-events: none;
+}
+
+.container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.content {
+  width: 300px;
+  height: 300px;
+}
+.content__home {
+  box-shadow: 0 0 20px darkgray;
+  background-color: gray;
+}
+.content__examples {
+  width: 100vw;
+  height: 100vh;
+}
+.content__example {
+  box-shadow: 0 0 20px darkgray;
+  background-color: gray;
 }
 
 .button {
   border: 2px solid gray;
   width: 50px;
   height: 50px;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
-.button__clickable {
-  cursor: pointer;
+.button__home {
+  border: 2px solid gray;
+  width: 50px;
+  height: 50px;
 }
-.button__clickable:hover {
-  border: 5px solid magenta;
+.button__examples {
+  border: 2px solid gray;
+  width: 50px;
+  height: 50px;
 }
-.button__clicked {
-  cursor: default;
-  width: 100px;
-  height: 100px;
-  opacity: 0;
+.button__close {
+  border: 2px solid red;
+  width: 50px;
+  height: 50px;
 }
-.button__up {
-  top: 10%;
-}
-.button__down {
-  top: 90%;
+.button__close:hover {
+  border: 5px solid black;
 }
 
 .example-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 300px;
   height: 300px;
+  border: 2px solid gray;
 }
-.example-card__active {
-  top: 50%;
-  left: 30%;
+.example-card__on {
   width: 100px;
   height: 100px;
-  border: 2px solid gray;
-  cursor: pointer;
 }
-.example-card__active:hover{
+.example-card__on:hover {
   border: 5px solid magenta;
 }
-.example-card__left {
-  left: 30%;
-}
-.example-card__mid {
+.example-card__off {
   left: 50%;
-}
-.example-card__right {
-  left: 70%;
 }
