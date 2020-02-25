@@ -59,6 +59,13 @@ const CONTENT = {
         <a class='text__props'>   mail                              </a>
         <a class='text__syntax'>  :                                 </a>
         <a class='text__link'>    'viktor.krasnorutsky@yandex.ru'   </a>
+        <a class='text__syntax'>  ,                                 </a>
+        <br/>
+
+        &ensp;
+        <a class='text__props'>   git                               </a>
+        <a class='text__syntax'>  :                                 </a>
+        <a class='text__link'>    'github.com/ViktorKrasnorutskiy'  </a>
         <br/>
 
         <a class='text__syntax'>  };                                </a>
@@ -86,15 +93,15 @@ const CONTENT = {
       onclick: (e)=>clickHandler(e)
     },
     {
-      className: 'container __mid_x __up button__home __hidden',
+      className: 'container __mid_x __up button button__home __hidden button__closed',
       onclick: (e)=>clickHandler(e)
     },
     {
-      className: 'container __mid_x __down button__examples __clickable',
+      className: 'container __mid_x __down button button__examples __clickable',
       onclick: (e)=>clickHandler(e)
     },
     {
-      className: 'container __mid_x __up button__close __hidden',
+      className: 'container __mid_x __up button button__close __hidden button__closed',
       onclick: (e)=>clickHandler(e)
     }
   ]
@@ -129,17 +136,19 @@ const dom = {
 }
 
 const setDom = {
-  setClassesInArray: (elems, classA, classB) => {
+  setClassesInArray: (elems, ...classes) => {
     Array.from(elems).forEach(
       (elem) => {
-        elem.classList.toggle(classA)
-        elem.classList.toggle(classB)
+        classes.forEach((_class) => {
+          elem.classList.toggle(_class)
+        });
       }
     )
   },
-  setClass: (element, classA, classB) => {
-    element.classList.toggle(classA)
-    element.classList.toggle(classB)
+  setClass: (element, ...classes) => {
+    classes.forEach((_class) => {
+      element.classList.toggle(_class)
+    });
   }
 }
 
@@ -150,13 +159,14 @@ const clickHandler = ({target}) => {
   if (targetHave('__clickable')) {
     if (targetHave('button__examples') || targetHave('button__home')) {
       setDom.setClass(dom.content, 'content__home', 'content__examples');
-      setDom.setClass(dom.buttons.toHome, '__hidden', '__clickable');
-      setDom.setClass(dom.buttons.toExamples, '__hidden', '__clickable');
+      setDom.setClass(dom.buttons.toHome, '__hidden', '__clickable', 'button__closed');
+      setDom.setClass(dom.buttons.toExamples, '__hidden', '__clickable', 'button__closed');
       setDom.setClassesInArray(dom.example_cards.all, '__hidden', '__clickable');
       setDom.setClassesInArray(dom.example_cards.all, 'example-card__on', 'example-card__off');
     } else if (targetHave('example-card') || targetHave('button__close')) {
       setDom.setClass(dom.content, 'content__examples', 'content__example');
-      setDom.setClass(dom.buttons.closeExample, '__hidden', '__clickable');
+      setDom.setClass(dom.buttons.toHome, '__hidden', '__clickable', 'button__closed');
+      setDom.setClass(dom.buttons.closeExample, '__hidden', '__clickable', 'button__closed');
       setDom.setClassesInArray(dom.example_cards.all, '__hidden', '__clickable');
       setDom.setClassesInArray(dom.example_cards.all, 'example-card__on', 'example-card__off');
     }
